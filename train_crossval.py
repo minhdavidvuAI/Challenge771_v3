@@ -248,7 +248,7 @@ if __name__ == "__main__":
                                         weight_decay=config.weight_decay)
             """
             #todo maybe change the parameters so that they are in config.py
-            optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4, weight_decay=1e-2)
+            optimizer = torch.optim.AdamW(model.parameters(), lr=0.005, weight_decay=1e-2)
             """
             scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
                                                         step_size=config.step_size,

@@ -24,11 +24,11 @@ global_stats = np.array([[-54.342407,  21.136114],
                          [-54.35301,   20.971909],
                          [-54.166874,  21.144987]]) 
  """
- global_stats = np.array([[-49.97833,   25.170425],
-                         [-49.81923,   25.137167],
-                         [-49.829582,  25.104254],
-                         [-49.73296,   25.101704],
-                         [-49.650196,  25.181137]])
+global_stats = np.array([[-49.97833,   25.170425],
+                     [-49.81923,   25.137167],
+                     [-49.829582,  25.104254],
+                     [-49.73296,   25.101704],
+                     [-49.650196,  25.181137]])
 
 # evaluate model on different testing data 'dataloader'
 def test(model, dataloader, criterion, device):
@@ -167,7 +167,7 @@ if __name__ == "__main__":
     # for all folds
     scores = {}
     # expensive!
-    global_stats = get_global_stats(data_path, augment_path)
+    #global_stats = get_global_stats(data_path, augment_path)
     print(global_stats)
     # for spectrograms
     

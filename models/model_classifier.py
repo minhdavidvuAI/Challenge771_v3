@@ -64,15 +64,16 @@ class ResNet18(nn.Module):
         self.layer4 = self._make_layer(512, blocks=2, stride=2)
 
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        #self.dropout = nn.Dropout(0.6)
-        #self.fc = nn.Linear(512 * BasicBlock.expansion, num_classes)
+        self.dropout = nn.Dropout(0.6)
+        self.fc = nn.Linear(512 * BasicBlock.expansion, num_classes)
+        """
         self.fc = nn.Sequential(
             nn.Linear(512, 256),
             nn.ReLU(inplace=True),
-            nn.Dropout(0.6),
+            nn.Dropout(0.5),
             nn.Linear(256, num_classes)
         )
-
+        """
     def _make_layer(self, out_channels, blocks, stride):
         downsample = None
         layers = []
@@ -107,7 +108,7 @@ class ResNet18(nn.Module):
 
         x = self.avgpool(x)    # [B, 512, 1, 1]
         x = torch.flatten(x, 1)
-        #x = self.dropout(x)
+        x = self.dropout(x)
         x = self.fc(x)         # [B, num_classes]
 
         return x

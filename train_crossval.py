@@ -127,7 +127,7 @@ def fit_classifier():
             break
 
         # advance the optimization scheduler
-        scheduler.step(val_loss_avg)
+        scheduler.step()
     # save full model
     torch.save(model.state_dict(), os.path.join(experiment, 'terminal.pt'))
 
@@ -249,12 +249,12 @@ if __name__ == "__main__":
             """
             #todo maybe change the parameters so that they are in config.py
             optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr, weight_decay=config.weight_decay)
-            """
+            
             scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
                                                         step_size=config.step_size,
                                                         gamma=config.gamma)
-            """
-            scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=5)
+            
+            #scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=5)
 
             # fit the model using only training and validation data, no testing data allowed here
             print()

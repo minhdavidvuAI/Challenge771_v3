@@ -1,0 +1,8 @@
+outputs
+results
+.ipynb_checkpoints
+__pycache__
+test.ipynb
+venv
+.idea
+data

@@ -127,7 +127,7 @@ def fit_classifier():
             break
 
         # advance the optimization scheduler
-        scheduler.step()
+        scheduler.step(val_loss_avg)
     # save full model
     torch.save(model.state_dict(), os.path.join(experiment, 'terminal.pt'))
 
